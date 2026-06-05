@@ -3,8 +3,12 @@ const projects = [
   {
     id: "bike-route-planner",
     title: "Bike Route Planner",
-    description: "An interactive mapping tool for plotting cycling routes and visualizing steepness profiles and elevation changes.",
+    description: "Plot routes with road cycling, direct/manual, or hiking/mtb routing. View route stats and a grade profile. Heavily inspired by onthegomap.",
     github: "https://github.com/ioncook/bike-route-planner",
+    images: [
+      "bike route photos/bike1.png",
+      "bike route photos/bike2.png"
+    ],
     path: "../bike-route-planner/"
   },
   {
@@ -36,23 +40,36 @@ const projects = [
   },
   {
     id: "fire-viewer",
-    title: "Fire Activity Viewer",
-    description: "A map-based dashboard showing current active forest fires, coordinate listings, and hazard containment zones.",
+    title: "Fire Viewer",
+    description: "Fire history visualizer currently including only CALFIRE data. Filter by size, cause, year, and season. Unfinished as of yet.",
     github: "https://github.com/ioncook/fire-viewer",
+    images: [
+      "fire viewer photos/fire1.png",
+      "fire viewer photos/fire2.png",
+      "fire viewer photos/fire3.png"
+    ],
     path: "../fire-viewer/"
   },
   {
     id: "koppen-guessr",
     title: "Köppen Guessr",
-    description: "A geography trivia game challenging players to identify regions based on their Köppen-Geiger climate class indicators.",
+    description: "A climate guessing game with three modes: Streaks, which requires you to guess the zone of a given city as many times in a row as possible; Photo Sphere, which shows a photo sphere at a random location for 5 rounds; and Data Guesser, which shows you the difference from the answer compared to guesses.",
     github: "https://github.com/ioncook/koppen-guessr",
+    images: [
+      "koppenguessr photos/guesser1.png",
+      "koppenguessr photos/guesser2.png",
+      "koppenguessr photos/guesser3.png"
+    ],
     path: "../koppen-guessr/"
   },
   {
     id: "your-clock",
     title: "Your Clock",
-    description: "A custom analog and digital timepiece visualizer supporting multiple timezones and structural designs.",
+    description: "Input your date of birth, find out what your upcoming milestones are in various time units.",
     github: "https://github.com/ioncook/your-clock",
+    images: [
+      "yourclock.png"
+    ],
     path: "../your-clock/"
   }
 ];
@@ -77,18 +94,21 @@ function populateProjectsTable() {
           <a href="${project.path}">${project.title}</a>
         </div>
         ${project.images ? `
-          <div class="slideshow-wrapper">
-            <div class="slideshow">
-              ${project.images.map((img, idx) => `
-                <img src="${img}" class="slide ${idx === 0 ? 'active' : ''}" alt="${project.title} screenshot">
-              `).join('')}
+          <a href="${project.path}" style="display: block; text-decoration: none;">
+            <div class="slideshow-wrapper">
+              <div class="slideshow">
+                ${project.images.map((img, idx) => `
+                  <img src="${img}" class="slide ${idx === 0 ? 'active' : ''}" alt="${project.title} screenshot">
+                `).join('')}
+              </div>
             </div>
-          </div>
+          </a>
         ` : ''}
       </td>
       <td>
         <div class="project-desc">${project.description}</div>
         <div class="view-source-container">
+          <a href="${project.path}" style="margin-right: 10px;">view page</a>
           <a href="${project.github}" target="_blank" rel="noopener noreferrer">view source</a>
         </div>
       </td>
@@ -102,11 +122,14 @@ function populateProjectsTable() {
 
 function startSlideshows() {
   const slideshows = document.querySelectorAll('.slideshow');
-  slideshows.forEach((slideshow, index) => {
+  let activeCount = 0;
+  slideshows.forEach((slideshow) => {
     const slides = slideshow.querySelectorAll('.slide');
     if (slides.length <= 1) return;
 
     let currentIdx = 0;
+    const delay = activeCount * 1200;
+    activeCount++;
     // Delay the start of each slideshow's interval to stagger them
     setTimeout(() => {
       setInterval(() => {
@@ -114,7 +137,7 @@ function startSlideshows() {
         currentIdx = (currentIdx + 1) % slides.length;
         slides[currentIdx].classList.add('active');
       }, 3000);
-    }, index * 1200);
+    }, delay);
   });
 }
 
