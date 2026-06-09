@@ -143,4 +143,55 @@ function startSlideshows() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', populateProjectsTable);
+document.addEventListener('DOMContentLoaded', () => {
+  populateProjectsTable();
+  initQuotes();
+});
+
+const jesusQuotes = [
+  { ref: "Matthew 11:28", text: "Come unto me, all ye that labour and are heavy laden, and I will give you rest." },
+  { ref: "John 14:6", text: "I am the way, the truth, and the life: no man cometh unto the Father, but by me." },
+  { ref: "John 8:12", text: "I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life." },
+  { ref: "Matthew 7:7", text: "Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you." },
+  { ref: "John 15:13", text: "Greater love hath no man than this, that a man lay down his life for his friends." },
+  { ref: "Luke 6:31", text: "And as ye would that men should do to you, do ye also to them likewise." },
+  { ref: "Matthew 6:33", text: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you." },
+  { ref: "John 10:11", text: "I am the good shepherd: the good shepherd giveth his life for the sheep." },
+  { ref: "Revelation 22:13", text: "I am Alpha and Omega, the beginning and the end, the first and the last." },
+  { ref: "John 11:25", text: "I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live." },
+  { ref: "Matthew 22:37", text: "Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind." },
+  { ref: "John 14:27", text: "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid." },
+  { ref: "Matthew 5:14", text: "Ye are the light of the world. A city that is set on an hill cannot be hid." },
+  { ref: "John 15:5", text: "I am the vine, ye are the branches: He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do no thing." },
+  { ref: "Matthew 28:20", text: "Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen." },
+  { ref: "Luke 23:34", text: "Father, forgive them; for they know not what they do." },
+  { ref: "John 10:10", text: "The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly." },
+  { ref: "Matthew 18:20", text: "For where two or three are gathered together in my name, there am I in the midst of them." },
+  { ref: "John 8:58", text: "Verily, verily, I say unto you, Before Abraham was, I am." },
+  { ref: "John 4:14", text: "But whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life." },
+  { ref: "John 14:15", text: "If ye love me, keep my commandments." },
+  { ref: "Matthew 19:26", text: "With men this is impossible; but with God all things are possible." },
+  { ref: "Luke 12:32", text: "Fear not, little flock; for it is your Father's good pleasure to give you the kingdom." },
+  { ref: "John 21:22", text: "If I will that he tarry till I come, what is that to thee? follow thou me." }
+];
+
+function loadRandomQuote() {
+  const display = document.getElementById('quote-display');
+  if (!display) return;
+  
+  const randomIndex = Math.floor(Math.random() * jesusQuotes.length);
+  const quote = jesusQuotes[randomIndex];
+  
+  display.innerHTML = `
+    <span class="quote-citation">${quote.ref}:</span>
+    <span class="quote-text">${quote.text}</span>
+  `;
+}
+
+function initQuotes() {
+  const btn = document.getElementById('new-quote-btn');
+  if (btn) {
+    btn.addEventListener('click', loadRandomQuote);
+  }
+  loadRandomQuote();
+}
