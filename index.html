@@ -22,10 +22,32 @@
     </div>
 
     <div id="content">
-      <p>Welcome to my Github home page. Here, you can find links to my projects and the source code. I might add more
-        in the future.</p>
+      <div class="welcome-container">
+        <img src="picture.jpg" class="welcome-pic" alt="Profile picture">
+        <p>Welcome to my home page. Here, you can find links to my projects and the source code. I might add more
+          in the future.</p>
+      </div>
 
-      <hr style="border: 0; border-top: 1px solid #DBDBDB; margin: 25px 0;">
+      <div class="section-header">
+        <h2>Global Settings</h2>
+      </div>
+
+      <div class="settings-container">
+        <div class="setting-item">
+          <span class="setting-label">Unit System</span>
+          <div class="setting-options">
+            <button id="unit-metric" class="setting-btn active">Metric</button>
+            <button id="unit-imperial" class="setting-btn">Imperial</button>
+          </div>
+        </div>
+        <div class="setting-item">
+          <span class="setting-label">Theme Mode</span>
+          <div class="setting-options">
+            <button id="theme-light" class="setting-btn active">Light</button>
+            <button id="theme-dark" class="setting-btn">Dark</button>
+          </div>
+        </div>
+      </div>
 
       <table width="100%" border="0" cellspacing="0" cellpadding="0" id="projects-table">
         <!-- Projects will be dynamically populated here in retro table rows -->

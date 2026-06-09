@@ -3,11 +3,13 @@ const projects = [
   {
     id: "bike-route-planner",
     title: "Bike Route Planner",
-    description: "Plot routes with road cycling, direct/manual, or hiking/mtb routing. View route stats and a grade profile. Heavily inspired by onthegomap.",
+    description: "Plot routes with road cycling, direct/manual, or hiking/mtb routing. View route stats and a grade profile. Click/tap to place a waypoint, right click or hold down to delete one. Heavily inspired by onthegomap.",
     github: "https://github.com/ioncook/bike-route-planner",
     images: [
       "bike route photos/bike1.png",
-      "bike route photos/bike2.png"
+      "bike route photos/bike2.png",
+      "bike route photos/bike3.png",
+      "bike route photos/bike4.png"
     ],
     path: "../bike-route-planner/"
   },
@@ -141,4 +143,63 @@ function startSlideshows() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', populateProjectsTable);
+document.addEventListener('DOMContentLoaded', () => {
+  populateProjectsTable();
+  initSettings();
+});
+
+// Global Settings Logic
+function initSettings() {
+  const metricBtn = document.getElementById('unit-metric');
+  const imperialBtn = document.getElementById('unit-imperial');
+  const lightBtn = document.getElementById('theme-light');
+  const darkBtn = document.getElementById('theme-dark');
+
+  if (!metricBtn || !imperialBtn || !lightBtn || !darkBtn) return;
+
+  // Load saved settings
+  const unitSystem = localStorage.getItem('unit-system') || 'metric';
+  const theme = localStorage.getItem('theme') || 'light';
+
+  // Apply settings
+  applyUnitSystem(unitSystem);
+  applyTheme(theme);
+
+  // Unit settings handlers
+  metricBtn.addEventListener('click', () => {
+    applyUnitSystem('metric');
+  });
+  imperialBtn.addEventListener('click', () => {
+    applyUnitSystem('imperial');
+  });
+
+  // Theme settings handlers
+  lightBtn.addEventListener('click', () => {
+    applyTheme('light');
+  });
+  darkBtn.addEventListener('click', () => {
+    applyTheme('dark');
+  });
+
+  function applyUnitSystem(unit) {
+    localStorage.setItem('unit-system', unit);
+    if (unit === 'metric') {
+      metricBtn.classList.add('active');
+      imperialBtn.classList.remove('active');
+    } else {
+      imperialBtn.classList.add('active');
+      metricBtn.classList.remove('active');
+    }
+  }
+
+  function applyTheme(t) {
+    localStorage.setItem('theme', t);
+    if (t === 'dark') {
+      darkBtn.classList.add('active');
+      lightBtn.classList.remove('active');
+    } else {
+      lightBtn.classList.add('active');
+      darkBtn.classList.remove('active');
+    }
+  }
+}
