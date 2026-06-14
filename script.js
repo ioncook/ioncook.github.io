@@ -29,7 +29,7 @@ const projects = [
   {
     id: "eu-political-compass",
     title: "EU Political Compass",
-    description: "Political compass placing EU polical parties on social and economic axes using Chapel Hill Expert Survey data. View or compare historical elections, select certain countries/political groups, and show a line of best fit showing the general trend of political leaning within the filters.",
+    description: "Political compass placing EU parties on social and economic axes using Chapel Hill Expert Survey data. View or compare historical elections, select certain countries/political groups, and show a line of best fit showing the general trend of political leaning within the filters.",
     github: "https://github.com/ioncook/EUPoliticalCompass",
     images: [
       "political compass photos/compass1.png",
@@ -178,10 +178,10 @@ const jesusQuotes = [
 function loadRandomQuote() {
   const display = document.getElementById('quote-display');
   if (!display) return;
-  
+
   const randomIndex = Math.floor(Math.random() * jesusQuotes.length);
   const quote = jesusQuotes[randomIndex];
-  
+
   display.innerHTML = `
     <span class="quote-citation">${quote.ref}:</span>
     <span class="quote-text">${quote.text}</span>
