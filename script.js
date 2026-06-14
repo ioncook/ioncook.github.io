@@ -73,6 +73,18 @@ const projects = [
       "yourclock.png"
     ],
     path: "../your-clock/"
+  },
+  {
+    id: "url-image-widget",
+    title: "URL Image Widget",
+    description: "An Android widget app for displaying images hosted at a url (such as webcams or certain weather info) on your home screen. Includes options to refresh the image at certain intervals, blur elements, frames, cropping options, and material you appearance.",
+    github: "https://github.com/ioncook/url-image-widget",
+    images: [
+      "image widget photos/Screenshot_20260614-115029_Moto App Launcher.png",
+      "image widget photos/Screenshot_20260614-115348_Moto App Launcher.png",
+      "image widget photos/Screenshot_20260614-115530_Moto App Launcher.png"
+    ],
+    path: "https://github.com/ioncook/url-image-widget/releases"
   }
 ];
 
