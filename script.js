@@ -3,7 +3,7 @@ const projects = [
   {
     id: "bike-route-planner",
     title: "Bike Route Planner",
-    description: "Plot routes with road cycling, direct/manual, or hiking/mtb routing. View route stats and a grade profile. Click/tap to place a waypoint, right click or hold down to delete one. Heavily inspired by onthegomap.",
+    description: "Plot routes with road cycling, direct/manual, or hiking/mtb routing. View route stats and a grade profile. Click/tap to place a waypoint, right click or hold down to delete one. Middle click to bring up a popup with the coordinates, elevation, and weather conditions at that location. Inspired by onthegomap.",
     github: "https://github.com/ioncook/bike-route-planner",
     images: [
       "bike route photos/bike1.png",
@@ -43,7 +43,7 @@ const projects = [
   {
     id: "fire-viewer",
     title: "Fire Viewer",
-    description: "Fire history visualizer currently including only CALFIRE data. Filter by size, cause, year, and season. Unfinished as of yet.",
+    description: "Fire history visualizer for the western US. Filter by size, cause, year, and season.",
     github: "https://github.com/ioncook/fire-viewer",
     images: [
       "fire viewer photos/fire1.png",
