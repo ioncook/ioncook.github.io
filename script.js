@@ -3,7 +3,7 @@ const projects = [
   {
     id: "bike-route-planner",
     title: "Bike Route Planner",
-    description: "Plot routes with road cycling, direct/manual, or hiking/mtb routing. View route stats and a grade profile. Click/tap to place a waypoint, right click or hold down to delete one. Middle click to bring up a popup with the coordinates, elevation, and weather conditions at that location. Inspired by onthegomap.",
+    description: "Plot routes with road cycling, direct/manual, or hiking/mtb routing. View route stats and a grade profile. Click/tap to place a waypoint, right click or hold down to delete one. Middle click to bring up a popup with the coordinates, elevation, and weather conditions at that location. Inspired by onthegomap.com.",
     github: "https://github.com/ioncook/bike-route-planner",
     images: [
       "bike route photos/bike1.png",
@@ -29,7 +29,7 @@ const projects = [
   {
     id: "eu-political-compass",
     title: "EU Political Compass",
-    description: "Political compass placing EU parties on social and economic axes using Chapel Hill Expert Survey data. View or compare historical elections, select certain countries/political groups, and show a line of best fit showing the general trend of political leaning within the filters.",
+    description: "Political compass placing EU political parties on social and economic axes using Chapel Hill Expert Survey data. View or compare historical elections, select certain countries/political groups, and show a line of best fit showing the general trend of political leaning within the filters.",
     github: "https://github.com/ioncook/EUPoliticalCompass",
     images: [
       "political compass photos/compass1.png",
@@ -55,7 +55,7 @@ const projects = [
   {
     id: "koppen-guessr",
     title: "Köppen Guessr",
-    description: "A climate guessing game with three modes: Streaks, which requires you to guess the zone of a given city as many times in a row as possible; Photo Sphere, which shows a photo sphere at a random location for 5 rounds; and Data Guesser, which shows you the difference from the answer compared to guesses.",
+    description: "A climate guessing game with three modes: Streaks, which requires you to guess the zone of a given city as many times in a row as possible; Photo Sphere, which shows a photo sphere at a random location for 5 rounds; and Data Guesser, which shows you the difference from a select location compared to guesses.",
     github: "https://github.com/ioncook/koppen-guessr",
     images: [
       "koppenguessr photos/guesser1.png",
